@@ -7,25 +7,21 @@ export default function TodoList() {
   const [editingIndex, setEditingIndex] = useState(null);
   const [editingTask, setEditingTask] = useState("");
 
-  // Add Task
   const addTask = () => {
     if (task.trim() === "") return;
     setTasks([...tasks, task]);
     setTask("");
   };
 
-  // Remove Task
   const removeTask = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
   };
 
-  // Start Editing Task
   const startEditing = (index) => {
     setEditingIndex(index);
     setEditingTask(tasks[index]);
   };
 
-  // Save Edited Task
   const saveEditedTask = () => {
     if (editingTask.trim() === "") return;
     const updatedTasks = [...tasks];
